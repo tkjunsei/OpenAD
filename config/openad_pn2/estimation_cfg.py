@@ -37,7 +37,8 @@ training_cfg = dict(
     semi=False,
     rotate_type=None,
     batch_size=16,
-    epoch=2000,
+    # epock=2000,
+    epoch=200,
     seed=1,
     dropout=0.5,
     gpu='4',
@@ -58,7 +59,7 @@ training_cfg = dict(
 )
 
 data = dict(
-    data_root = '/home/longpham2/tuan.vo/temp/Data',
+    data_root = '/home/junsei/Downloads/GitHub/OpenV/drive',
     category = ['grasp', 'contain', 'lift', 'openable', 'layable', 'sittable',
                'support', 'wrap_grasp', 'pourable', 'move', 'displaY', 'pushable', 'pull',
                'listen', 'wear', 'press', 'cut', 'stab', 'none']

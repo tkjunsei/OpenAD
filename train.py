@@ -30,6 +30,12 @@ def parse_args():
         default=None,
         help="The checkpoint to be resume"
     )
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+        help="Checkpoint to resume training"
+    )
     args = parser.parse_args()
     return args
 

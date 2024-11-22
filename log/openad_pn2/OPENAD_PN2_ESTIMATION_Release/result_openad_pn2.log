@@ -1,0 +1,75 @@
+Set seed to 1
+eval point avg class IoU: 0.015970
+eval point accuracy: 0.104286
+eval point avg class acc: 0.030506
+------- IoU --------
+class grab, IoU: 0.007 
+class accommodate, IoU: 0.016 
+class raise, IoU: 0.000 
+class unlock, IoU: 0.000 
+class rest, IoU: 0.000 
+class take a seat, IoU: 0.001 
+class bear, IoU: 0.121 
+class wrap, IoU: 0.021 
+class pour, IoU: 0.000 
+class reposition, IoU: 0.029 
+class demonstrate, IoU: 0.000 
+class push, IoU: 0.000 
+class drag, IoU: 0.000 
+class hear, IoU: 0.000 
+class clothe, IoU: 0.000 
+class thumb, IoU: 0.000 
+class slice, IoU: 0.005 
+class jab, IoU: 0.000 
+class none, IoU: 0.103 
+
+Set seed to 1
+eval point avg class IoU: 0.015970
+eval point accuracy: 0.104286
+eval point avg class acc: 0.030506
+------- IoU --------
+class grab, IoU: 0.007 
+class accommodate, IoU: 0.016 
+class raise, IoU: 0.000 
+class unlock, IoU: 0.000 
+class rest, IoU: 0.000 
+class take a seat, IoU: 0.001 
+class bear, IoU: 0.121 
+class wrap, IoU: 0.021 
+class pour, IoU: 0.000 
+class reposition, IoU: 0.029 
+class demonstrate, IoU: 0.000 
+class push, IoU: 0.000 
+class drag, IoU: 0.000 
+class hear, IoU: 0.000 
+class clothe, IoU: 0.000 
+class thumb, IoU: 0.000 
+class slice, IoU: 0.005 
+class jab, IoU: 0.000 
+class none, IoU: 0.103 
+
+Set seed to 1
+eval point avg class IoU: 0.015970
+eval point accuracy: 0.104286
+eval point avg class acc: 0.030506
+------- IoU --------
+class grab, IoU: 0.007 
+class accommodate, IoU: 0.016 
+class raise, IoU: 0.000 
+class unlock, IoU: 0.000 
+class rest, IoU: 0.000 
+class take a seat, IoU: 0.001 
+class bear, IoU: 0.121 
+class wrap, IoU: 0.021 
+class pour, IoU: 0.000 
+class reposition, IoU: 0.029 
+class demonstrate, IoU: 0.000 
+class push, IoU: 0.000 
+class drag, IoU: 0.000 
+class hear, IoU: 0.000 
+class clothe, IoU: 0.000 
+class thumb, IoU: 0.000 
+class slice, IoU: 0.005 
+class jab, IoU: 0.000 
+class none, IoU: 0.103 
+

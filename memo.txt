@@ -1,0 +1,4 @@
+GitHub上ではfull_shapeという名前が存在するとされているが，ファイルが存在しない．
+論文上のタスクはfll_shapeとpartial_shapeの２つであり，
+コード上のタスクに当たるのはestimationとpartical．対になる形で保存されているので，
+full_shapeが名前を変えてestimationになったという前提で動作させる．

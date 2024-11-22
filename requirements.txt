@@ -5,3 +5,9 @@ transforms3d
 scikit_learn
 gorilla-core
 git+https://github.com/openai/CLIP.git
+
+
+opencv-python
+torch-cluster-1.6.3+pt24cu121
+einops
+torch-scatter-2.1.2+pt24cu121

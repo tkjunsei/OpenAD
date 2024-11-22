@@ -26,12 +26,30 @@ init_pool = {
     'pn2_init': weights_init
 }
 
+# # from chatGPT
+# init_pool['/home/junsei/Downloads/GitHub/OpenV/drive/full_shape_weights.npy'] = lambda model: load_numpy_weights_to_model(
+#     model, np.load('/home/junsei/Downloads/GitHub/OpenV/drive/full_shape_weights.npy')
+# )
+
+
 scheduler_pool = {
     'step': StepLR,
     'cos': CosineAnnealingLR,
     'lr_lambda': LambdaLR,
     'multi_step': MultiStepLR
 }
+
+# # from chatGPT
+# def load_numpy_weights_to_model(model, weights):
+#     """
+#     Apply the weights from a numpy array to the model.
+#     This assumes the weights are scalar values for each class or feature.
+#     """
+#     with torch.no_grad():
+#         for i, param in enumerate(model.parameters()):
+#             if i < len(weights):  # 対応するパラメータが存在する場合のみ適用
+#                 param.fill_(weights[i])  # 重みを設定
+#     print("[*] Weights initialized using numpy array")
 
 
 # function to build the model before training

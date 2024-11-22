@@ -27,6 +27,8 @@ optimizer = dict(
 model = dict(
     type='openad_pn2',
     weights_init='pn2_init'
+    # weights_init='/home/junsei/Downloads/GitHub/OpenV/drive/full_shape_weights.npy'
+
 )
 
 training_cfg = dict(
@@ -57,8 +59,9 @@ training_cfg = dict(
     #            'listen', 'wear', 'press', 'cut', 'stab', 'none']
 )
 
+# 学習後，
 data = dict(
-    data_root = '/home/tuan.vo1/IROS2023_Affordance-master/Data',
+    data_root = '/home/junsei/Downloads/GitHub/OpenV/drive',
     category = ['grasp', 'contain', 'lift', 'openable', 'layable', 'sittable',
                'support', 'wrap_grasp', 'pourable', 'move', 'displaY', 'pushable', 'pull',
                'listen', 'wear', 'press', 'cut', 'stab', 'none']
