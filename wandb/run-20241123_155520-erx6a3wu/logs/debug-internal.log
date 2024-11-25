@@ -1,0 +1,16 @@
+{"time":"2024-11-23T15:55:20.307493205+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-23T15:55:20.307497909+09:00","level":"INFO","msg":"created symlink","path":"/mnt/hdd1/junsei/GitHub/OpenAD/wandb/run-20241123_155520-erx6a3wu/logs/debug-core.log"}
+{"time":"2024-11-23T15:55:20.408790964+09:00","level":"INFO","msg":"created new stream","id":"erx6a3wu"}
+{"time":"2024-11-23T15:55:20.408804489+09:00","level":"INFO","msg":"stream: started","id":"erx6a3wu"}
+{"time":"2024-11-23T15:55:20.408885034+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T15:55:20.408942038+09:00","level":"INFO","msg":"handler: started","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T15:55:20.40895797+09:00","level":"INFO","msg":"sender: started","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T15:55:20.691095049+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-23T16:05:06.641347682+09:00","level":"INFO","msg":"stream: closing","id":"erx6a3wu"}
+{"time":"2024-11-23T16:05:06.641360074+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-23T16:05:06.64170943+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-23T16:05:08.952991553+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-23T16:05:09.165298767+09:00","level":"INFO","msg":"handler: closed","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T16:05:09.165313555+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T16:05:09.165327502+09:00","level":"INFO","msg":"sender: closed","stream_id":"erx6a3wu"}
+{"time":"2024-11-23T16:05:09.165339542+09:00","level":"INFO","msg":"stream: closed","id":"erx6a3wu"}

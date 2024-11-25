@@ -1,0 +1,16 @@
+Use 1 GPUs: 1
+Set seed to 1
+Training from scratch!
+Epoch(0) begin training........
+  0%|                                                                                                                                                 | 0/1005 [00:00<?, ?it/s]/home/junsei/anaconda3/envs/openad/lib/python3.8/site-packages/torch/nn/modules/module.py:1553: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  return self._call_impl(*args, **kwargs)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1005/1005 [08:58<00:00,  1.87it/s]
+Train(0), loss: 2.283819, time: 538 s
+Traceback (most recent call last):
+  File "train.py", line 160, in <module>
+    task_trainer.run()
+  File "/mnt/hdd1/junsei/GitHub/OpenAD/utils/trainer.py", line 313, in run
+    gpu_info = self.get_gpu_usage()
+  File "/mnt/hdd1/junsei/GitHub/OpenAD/utils/trainer.py", line 274, in get_gpu_usage
+    name = pynvml.nvmlDeviceGetName(handle).decode('utf-8')
+AttributeError: 'str' object has no attribute 'decode'

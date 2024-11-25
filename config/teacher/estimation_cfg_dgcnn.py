@@ -1,7 +1,12 @@
 import os
 from os.path import join as opj
 
+"""
+教師モデルの学習の際に使用されるconfigファイルの定義
+"""
+
 exp_name = "OPENAD_DGCNN_ESTIMATION_Release"
+# work_dir == ./log/openad_dgcnn/{exp_name}
 work_dir = opj("./log/openad_dgcnn", exp_name)
 seed = 1
 try:

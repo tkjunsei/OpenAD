@@ -27,8 +27,6 @@ optimizer = dict(
 model = dict(
     type='openad_pn2',
     weights_init='pn2_init'
-    # weights_init='/home/junsei/Downloads/GitHub/OpenV/drive/full_shape_weights.npy'
-
 )
 
 training_cfg = dict(
@@ -61,7 +59,8 @@ training_cfg = dict(
 
 # 学習後，
 data = dict(
-    data_root = '/home/junsei/Downloads/GitHub/OpenV/drive',
+    # data_rootはいわゆるデータセットが入ってるディレクトリで，.pkl形式のファイルが入ってるディレクトリを指定する
+    data_root = '/home/junsei/Downloads/GitHub/OpenAD/drive',
     category = ['grasp', 'contain', 'lift', 'openable', 'layable', 'sittable',
                'support', 'wrap_grasp', 'pourable', 'move', 'displaY', 'pushable', 'pull',
                'listen', 'wear', 'press', 'cut', 'stab', 'none']

@@ -1,0 +1,16 @@
+{"time":"2024-11-23T15:39:30.447497298+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-23T15:39:30.447504383+09:00","level":"INFO","msg":"created symlink","path":"/mnt/hdd1/junsei/GitHub/OpenAD/wandb/run-20241123_153930-0nz5w2p1/logs/debug-core.log"}
+{"time":"2024-11-23T15:39:30.549293949+09:00","level":"INFO","msg":"created new stream","id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.549305795+09:00","level":"INFO","msg":"stream: started","id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.549360689+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.549393694+09:00","level":"INFO","msg":"sender: started","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.549432568+09:00","level":"INFO","msg":"handler: started","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.861320794+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-23T15:39:30.932937652+09:00","level":"INFO","msg":"stream: closing","id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:30.932968586+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-23T15:39:30.933254836+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-23T15:39:34.664140949+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-23T15:39:34.875402901+09:00","level":"INFO","msg":"handler: closed","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:34.875417886+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:34.875434065+09:00","level":"INFO","msg":"sender: closed","stream_id":"0nz5w2p1"}
+{"time":"2024-11-23T15:39:34.875436429+09:00","level":"INFO","msg":"stream: closed","id":"0nz5w2p1"}

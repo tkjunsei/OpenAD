@@ -2,3 +2,40 @@ GitHub上ではfull_shapeという名前が存在するとされているが，�
 論文上のタスクはfll_shapeとpartial_shapeの２つであり，
 コード上のタスクに当たるのはestimationとpartical．対になる形で保存されているので，
 full_shapeが名前を変えてestimationになったという前提で動作させる．
+
+2024/11/20に行った学習は全くの的外れなことを行っているかもしれない．
+githubには次のコマンドを実行するように書かれている
+$CUDA_VISIBLE_DEVICES=0 python3 train.py --config ./config/openad_pn2/full_shape_cfg.py --config_teacher './config/teacher/estimation_cfg.py' --checkpoint_teacher <path to your checkpoint teacher model> --work_dir ./log/openad_pn2/OPENAD_PN2_FULL_SHAPE_Release/ --gpu 0
+生徒モデルの引数である--configがで使っているfull_shape_cfg.pyのdata_rootがおそらくデータセットのパスであるにも関わらず，教師モデルのパスを指定して学習を行っていた．
+まだわからない．
+./driveの中身のtrain_data.pklとval_data.pkl, weights.npyを確認すると，データルートの指定は間違っていないように考えられる．
+weights.npyはクラスごとの重みを記載してある．
+
+教師モデルのconfigファイル.config/openad_pn2/estimation_cfg.pyのdata_rootが適切に指定されていないことが判明した．
+しかし，git cloneしてきたときのファイルパスは存在しないはずなので，エラーが起こる気がするが起きていないのでこのconfigがそもそも反映されているのかわからない．
+
+./teacher_model/poinet++/の教師モデルの性能比較を行った
+best_model_1.pth
+{'epoch': 14, 'class_avg_iou': 0.5264034467789395, 'instance_acc': None, 'class_acc': None}
+best_model_cls_6.pth
+{'epoch': 71, 'class_avg_iou': None, 'instance_acc': 0.9253236245954691, 'class_acc': 0.8848569624819624}
+best_model_cls.pth
+{'epoch': 129, 'class_avg_iou': None, 'instance_acc': 0.9289644012944983, 'class_acc': 0.9042236201298701}
+best_model.pth
+{'epoch': 110, 'class_avg_iou': 0.4318621992683236, 'instance_acc': None, 'class_acc': None}
+point_techer_pretrained.pth
+{'epoch': 14, 'class_avg_iou': 0.5264034467789395, 'instance_acc': None, 'class_acc': None}
+
+
+実行コマンド(2024/11/23/0608)
+1エポック8分程度かかる？
+実行コマンド
+CUDA_VISIBLE_DEVICES=0,1 python3 train.py --config ./config/openad_pn2/estimation_cfg.py --config_teacher './config/teacher/estimation_cfg.py' --checkpoint_teacher '/home/junsei/Downloads/GitHub/OpenAD/teacher_model/poinet++/point_techer_pretrained.pth' --work_dir ./log/openad_pn2/OPENAD_PN2_FULL_SHAPE_Release_1123/ --gpu 0,1
+変更点
+・gpuを２つ使ってデータ並列化を行う
+・teacher/estimation_cfg.pyのdata_rootに正しいパスを設定
+
+gpu１つで1エポックあたり8.5分，gpu2つで1エポックあたり8分
+
+OPENAD_FULL_SAPE_Release_1123 wandbナシ
+OPENAD_FULL_SAPE_Release_11231539 wandbアリ

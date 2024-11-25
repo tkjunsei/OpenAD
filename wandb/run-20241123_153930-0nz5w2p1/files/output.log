@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "train.py", line 91, in <module>
+    logger = IOStream(opj(cfg.work_dir, 'run.log'))     # opj is os.path.join
+  File "/mnt/hdd1/junsei/GitHub/OpenAD/utils/utils.py", line 9, in __init__
+    self.f = open(path, 'a')
+FileNotFoundError: [Errno 2] No such file or directory: './log/openad_pn2/OPENAD_PN2_FULL_SHAPE_Release_11231539/run.log'

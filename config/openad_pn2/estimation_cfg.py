@@ -2,20 +2,32 @@ import os
 from os.path import join as opj
 from utils import PN2_BNMomentum, PN2_Scheduler
 
-exp_name = "OPENAD_PN2_ESTIMATION_Release"
+"""
+生徒モデルの学習の際に使用されるconfigファイルの定義
+"""
+
+exp_name = "OPENAD_PN2_ESTIMATION_Release_1123"
+# work_dir == ./log/openad_pn2/{exp_name}
 work_dir = opj("./log/openad_pn2", exp_name)
+# seedの設定
 seed = 1
+# work_dirが存在しなければ作成
 try:
     os.makedirs(work_dir)
 except:
     print('Working Dir is already existed!')
 
+# 学習率スケジューラ(学習中の学習率を動的に調整する仕組み)の設定
+# 学習率調整方法としてLambdaLRスケジューラPyTorchが提供する学習率スケジューラの1つ)を指定
+# 初期学習率0.001，20ステップごとに減衰率0.5，最小学習率は1e-5
 scheduler = dict(
     type='lr_lambda',
     lr_lambda=PN2_Scheduler(init_lr=0.001, step=20,
                             decay_rate=0.5, min_lr=1e-5)
 )
 
+# 最適化アルゴリズムの設定
+# Adam_optimizerを使用．学習率0.001,モーメント項の係数(0.9,0.999), L2正則化を行う
 optimizer = dict(
     type='adam',
     lr=0.001,
@@ -24,12 +36,30 @@ optimizer = dict(
     weight_decay=1e-4
 )
 
+# 使用するモデルの設定
+# 使用するモデルの名前:openad_pn2, モデルの初期重みの指定
 model = dict(
     type='openad_pn2',
     weights_init='pn2_init'
 )
 
+
+# トレーニングの設定
+# estimate:推定タスクを有効化
+# partial:
+# rotate:回転変換(z軸回転や3次元回転も可能,前のopenADでは実験されていた)
+# semi:
+# rotate_type:
+# batch_size:ミニバッチサイズ
+# epoch:トレーニングエポック数
+# seed:
+# dropout:ドロップアウト率
+# gpu:使用するGPU番号
+# workflow:トレーニングと検証を1エポックずつ交互に実行
+# bn_momentum:BatchNormモメンタムの設定,初期値0.1,減衰率0.1,20エポックごとに調整
+# _affordance:トレーニング,検証,ゼロベースラベルのaffordanceカテゴリ
 training_cfg = dict(
+
     model=model,
     estimate=True,
     partial=False,
@@ -37,7 +67,7 @@ training_cfg = dict(
     semi=False,
     rotate_type=None,
     batch_size=16,
-    # epock=2000,
+    # epoch=2000,
     epoch=200,
     seed=1,
     dropout=0.5,
@@ -58,8 +88,11 @@ training_cfg = dict(
                 'clothe', 'thumb', 'slice', 'jab', 'none'],
 )
 
+# データセットの設定
+# data_root:データセットのパス
+# Affordanceカテゴリ
 data = dict(
-    data_root = '/home/junsei/Downloads/GitHub/OpenV/drive',
+    data_root = '/home/junsei/Downloads/GitHub/OpenAD/drive',
     category = ['grasp', 'contain', 'lift', 'openable', 'layable', 'sittable',
                'support', 'wrap_grasp', 'pourable', 'move', 'displaY', 'pushable', 'pull',
                'listen', 'wear', 'press', 'cut', 'stab', 'none']

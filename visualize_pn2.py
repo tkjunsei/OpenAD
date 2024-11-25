@@ -15,7 +15,9 @@ from scipy.spatial.transform import Rotation as R	# For rotation matrices
 Re-define the point cloud network PointNet++. You will need to modify this according to the point cloud network you defined
 """
 class PN2(nn.Module):
+    """点群データから特徴点を抽出"""
     def __init__(self, normal_channel=False):
+        # 初期化
         super(PN2, self).__init__()
 
         if normal_channel:
@@ -23,23 +25,28 @@ class PN2(nn.Module):
         else:
             additional_channel = 0
         self.normal_channel = normal_channel
+        # 複数のスケール(半径)で点群をグループ化し特徴を抽出
         self.sa1 = PointNetSetAbstractionMsg(512, [0.1, 0.2, 0.4], [
                                              32, 64, 128], 3+additional_channel, [[32, 32, 64], [64, 64, 128], [64, 96, 128]])
         self.sa2 = PointNetSetAbstractionMsg(
             128, [0.4, 0.8], [64, 128], 128+128+64, [[128, 128, 256], [128, 196, 256]])
+        # 全点群の特徴を要約
         self.sa3 = PointNetSetAbstraction(
             npoint=None, radius=None, nsample=None, in_channel=512 + 3, mlp=[256, 512, 1024], group_all=True)
-
+        # 抽出された特徴を高解像度にアップサンプリング
         self.fp3 = PointNetFeaturePropagation(in_channel=1536, mlp=[256, 256])
         self.fp2 = PointNetFeaturePropagation(in_channel=576, mlp=[256, 128])
         self.fp1 = PointNetFeaturePropagation(
             in_channel=134+additional_channel, mlp=[128, 128])
+        # １次元畳み込み層
         self.conv1 = nn.Conv1d(128, 512, 1)
         self.bn1 = nn.BatchNorm1d(512)
         self.drop1 = nn.Dropout(0.5)
         self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
 
+    # 順伝播
     def forward(self, xyz):
+        """順伝播"""
         # Set Abstraction layers
         xyz = xyz.contiguous()
         B, C, N = xyz.shape
@@ -88,7 +95,8 @@ if __name__ == "__main__":
     # Initialize the point cloud network
     pn2 = PN2().to('cuda')
 
-    checkpoint = './best_model_openad_pn2_estimation.t7'
+    # 学習させたモデルのパス(best_model.t7)
+    checkpoint = './log/openad_pn2/OPENAD_PN2_ESTIMATION_Release_poinet_2/best_model.t7'
     print("Loading checkpoint....")
     _, exten = os.path.splitext(checkpoint)
     
@@ -104,7 +112,8 @@ if __name__ == "__main__":
     clip_model, _ = clip.load("ViT-B/32", device='cuda')
 
     # Load point cloud data
-    with open('/home/tuan.vo1/IROS2023_Affordance-master/Data/full_shape_val_data.pkl', 'rb') as f:
+    # 点群データのパス(full_shape_val.pkl)
+    with open('./drive/full_shape_val_data.pkl', 'rb') as f:
         data = pickle.load(f)
     
     # Define the list of object names

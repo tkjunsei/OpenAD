@@ -12,7 +12,7 @@ class EstimationLoss(nn.Module):
     # for our model
     def __init__(self, gamma=0.0):
         super(EstimationLoss, self).__init__()
-        self.weights = torch.from_numpy(np.load('/home/junsei/Downloads/GitHub/OpenV/drive/full_shape_weights.npy')).cuda().float()
+        self.weights = torch.from_numpy(np.load('/home/junsei/Downloads/GitHub/OpenAD/drive/full_shape_weights.npy')).cuda().float()
         self.gamma = gamma
         self.alpha = 0
 

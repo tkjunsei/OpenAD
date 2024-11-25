@@ -1,0 +1,66 @@
+Use 1 GPUs: 1
+Set seed to 1
+Training from scratch!
+Epoch(0) begin training........
+  0%|                                                                                                                                                 | 0/1005 [00:00<?, ?it/s]/home/junsei/anaconda3/envs/openad/lib/python3.8/site-packages/torch/nn/modules/module.py:1553: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  return self._call_impl(*args, **kwargs)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1005/1005 [09:01<00:00,  1.86it/s]
+Train(0), loss: 2.367190, time: 541 s
+Epoch(0) begin validating......
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 143/143 [00:22<00:00,  6.48it/s]
+eval point avg class IoU: 0.089417
+eval point accuracy: 0.314169
+eval point avg class acc: 0.215523
+------- IoU --------
+class grasp, IoU: 0.039
+class contain, IoU: 0.174
+class lift, IoU: 0.000
+class openable, IoU: 0.029
+class layable, IoU: 0.000
+class sittable, IoU: 0.429
+class support, IoU: 0.422
+class wrap_grasp, IoU: 0.020
+class pourable, IoU: 0.093
+class move, IoU: 0.359
+class displaY, IoU: 0.037
+class pushable, IoU: 0.002
+class pull, IoU: 0.000
+class listen, IoU: 0.003
+class wear, IoU: 0.002
+class press, IoU: 0.000
+class cut, IoU: 0.062
+class stab, IoU: 0.013
+class none, IoU: 0.015
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 143/143 [00:21<00:00,  6.50it/s]
+
+eval point avg class IoU: 0.033395
+eval point accuracy: 0.076683
+eval point avg class acc: 0.127382
+------- IoU --------
+class grab, IoU: 0.023
+class accommodate, IoU: 0.008
+class raise, IoU: 0.000
+class unlock, IoU: 0.015
+class rest, IoU: 0.007
+class take a seat, IoU: 0.436
+class bear, IoU: 0.001
+class wrap, IoU: 0.018
+class pour, IoU: 0.069
+class reposition, IoU: 0.018
+class demonstrate, IoU: 0.006
+class push, IoU: 0.000
+class drag, IoU: 0.000
+class hear, IoU: 0.001
+class clothe, IoU: 0.002
+class thumb, IoU: 0.000
+class slice, IoU: 0.000
+class jab, IoU: 0.015
+class none, IoU: 0.015
+Traceback (most recent call last):
+  File "train.py", line 160, in <module>
+    task_trainer.run()
+  File "/mnt/hdd1/junsei/GitHub/OpenAD/utils/trainer.py", line 310, in run
+    epoch_runner()
+  File "/mnt/hdd1/junsei/GitHub/OpenAD/utils/trainer.py", line 233, in val
+    for class_name, iou in zip(self.val_affordance, class_iou):
+NameError: name 'class_iou' is not defined

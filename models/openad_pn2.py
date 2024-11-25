@@ -344,11 +344,12 @@ class ClassEncoder(nn.Module):
     def __init__(self):
         super(ClassEncoder, self).__init__()
         self.device = torch.device('cuda')
-        self.clip_model, _ = clip.load("ViT-B/32", device=self.device)
+        self.clip_model, _ = clip.load("ViT-B/32", device="cpu")
+        self.clip_model = self.clip_model.cuda()  # モデル全体をCUDAに移動
         for param in self.clip_model.parameters():
             param.requires_grad = False
     def forward(self, classes):
-        tokens = clip.tokenize(classes).to(self.device)
+        tokens = clip.tokenize(classes).to(next(self.clip_model.parameters()).device)
         text_features = self.clip_model.encode_text(tokens).to(self.device).permute(1, 0).float()
         return text_features
 

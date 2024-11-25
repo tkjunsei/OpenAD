@@ -1,0 +1,17 @@
+{"time":"2024-11-23T16:19:59.798460342+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-23T16:19:59.79846631+09:00","level":"INFO","msg":"created symlink","path":"/mnt/hdd1/junsei/GitHub/OpenAD/wandb/run-20241123_161959-srhecvd2/logs/debug-core.log"}
+{"time":"2024-11-23T16:19:59.900269404+09:00","level":"INFO","msg":"created new stream","id":"srhecvd2"}
+{"time":"2024-11-23T16:19:59.900290606+09:00","level":"INFO","msg":"stream: started","id":"srhecvd2"}
+{"time":"2024-11-23T16:19:59.90034353+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"srhecvd2"}
+{"time":"2024-11-23T16:19:59.900420996+09:00","level":"INFO","msg":"handler: started","stream_id":"srhecvd2"}
+{"time":"2024-11-23T16:19:59.900478054+09:00","level":"INFO","msg":"sender: started","stream_id":"srhecvd2"}
+{"time":"2024-11-23T16:20:00.204111772+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-24T13:42:05.850929048+09:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/toku-junsei-keio-university-global-page/OpenAD-training_20241123/srhecvd2/file_stream"}
+{"time":"2024-11-25T00:38:23.905868865+09:00","level":"INFO","msg":"stream: closing","id":"srhecvd2"}
+{"time":"2024-11-25T00:38:23.905879811+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-25T00:38:23.906230231+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-25T00:38:25.526272647+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-25T00:38:25.88789939+09:00","level":"INFO","msg":"handler: closed","stream_id":"srhecvd2"}
+{"time":"2024-11-25T00:38:25.887957636+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"srhecvd2"}
+{"time":"2024-11-25T00:38:25.887967744+09:00","level":"INFO","msg":"sender: closed","stream_id":"srhecvd2"}
+{"time":"2024-11-25T00:38:25.888056249+09:00","level":"INFO","msg":"stream: closed","id":"srhecvd2"}

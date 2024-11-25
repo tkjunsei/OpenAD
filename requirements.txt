@@ -11,3 +11,6 @@ opencv-python
 torch-cluster-1.6.3+pt24cu121
 einops
 torch-scatter-2.1.2+pt24cu121
+
+wandb
+pynvml

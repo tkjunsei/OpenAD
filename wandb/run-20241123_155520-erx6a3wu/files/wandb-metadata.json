@@ -1,0 +1,61 @@
+{
+  "os": "Linux-6.8.0-40-generic-x86_64-with-glibc2.17",
+  "python": "3.8.20",
+  "startedAt": "2024-11-23T06:55:20.307029Z",
+  "args": [
+    "--config",
+    "./config/openad_pn2/estimation_cfg.py",
+    "--config_teacher",
+    "./config/teacher/estimation_cfg.py",
+    "--checkpoint_teacher",
+    "/home/junsei/Downloads/GitHub/OpenAD/teacher_model/poinet++/point_techer_pretrained.pth",
+    "--work_dir",
+    "./log/openad_pn2/OPENAD_PN2_FULL_SHAPE_Release_11231539/",
+    "--gpu",
+    "1"
+  ],
+  "program": "train.py",
+  "codePath": "train.py",
+  "git": {
+    "remote": "git@github.com:tkjunsei/OpenAD.git",
+    "commit": "694510c76d4eb41b128d6746ec8d8e0392a88759"
+  },
+  "email": "toku.junsei@keio.jp",
+  "root": "/mnt/hdd1/junsei/GitHub/OpenAD",
+  "host": "dl-box8",
+  "username": "junsei",
+  "executable": "/home/junsei/anaconda3/envs/openad/bin/python3",
+  "codePathLocal": "train.py",
+  "cpu_count": 20,
+  "cpu_count_logical": 28,
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_count": 2,
+  "disk": {
+    "/": {
+      "total": "1006450962432",
+      "used": "803482468352"
+    }
+  },
+  "memory": {
+    "total": "134870794240"
+  },
+  "cpu": {
+    "count": 20,
+    "countLogical": 28
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.6"
+}
