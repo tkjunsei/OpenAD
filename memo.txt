@@ -38,4 +38,14 @@ CUDA_VISIBLE_DEVICES=0,1 python3 train.py --config ./config/openad_pn2/estimatio
 gpu１つで1エポックあたり8.5分，gpu2つで1エポックあたり8分
 
 OPENAD_FULL_SAPE_Release_1123 wandbナシ
+テスト結果　best_model.t7
+eval point avg class IoU: 0.124734
+eval point accuracy: 0.448701
+eval point avg class acc: 0.272078
+
+
 OPENAD_FULL_SAPE_Release_11231539 wandbアリ
+テスト結果　best_model.t7
+eval point avg class IoU: 0.156174
+eval point accuracy: 0.475561
+eval point avg class acc: 0.265961

@@ -225,3 +225,55 @@ class slice, IoU: 0.252
 class jab, IoU: 0.001 
 class none, IoU: 0.446 
 
+OPENAD_FULL_SAPE_Release_1123/best_model.t7
+Set seed to 1
+eval point avg class IoU: 0.124734
+eval point accuracy: 0.448701
+eval point avg class acc: 0.272078
+------- IoU --------
+class grab, IoU: 0.142 
+class accommodate, IoU: 0.002 
+class raise, IoU: 0.000 
+class unlock, IoU: 0.004 
+class rest, IoU: 0.000 
+class take a seat, IoU: 0.144 
+class bear, IoU: 0.000 
+class wrap, IoU: 0.295 
+class pour, IoU: 0.181 
+class reposition, IoU: 0.000 
+class demonstrate, IoU: 0.361 
+class push, IoU: 0.171 
+class drag, IoU: 0.000 
+class hear, IoU: 0.093 
+class clothe, IoU: 0.278 
+class thumb, IoU: 0.000 
+class slice, IoU: 0.252 
+class jab, IoU: 0.001 
+class none, IoU: 0.446 
+
+OPENAD_FULL_SAPE_Release_1123153/best_model.t7
+Set seed to 1
+eval point avg class IoU: 0.156174
+eval point accuracy: 0.475561
+eval point avg class acc: 0.265961
+------- IoU --------
+class grab, IoU: 0.221 
+class accommodate, IoU: 0.001 
+class raise, IoU: 0.000 
+class unlock, IoU: 0.001 
+class rest, IoU: 0.046 
+class take a seat, IoU: 0.559 
+class bear, IoU: 0.000 
+class wrap, IoU: 0.254 
+class pour, IoU: 0.305 
+class reposition, IoU: 0.000 
+class demonstrate, IoU: 0.006 
+class push, IoU: 0.240 
+class drag, IoU: 0.000 
+class hear, IoU: 0.296 
+class clothe, IoU: 0.002 
+class thumb, IoU: 0.000 
+class slice, IoU: 0.553 
+class jab, IoU: 0.000 
+class none, IoU: 0.483 
+

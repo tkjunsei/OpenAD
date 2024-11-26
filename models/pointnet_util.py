@@ -159,7 +159,20 @@ def sample_and_group_all(xyz, points):
 
 
 class PointNetSetAbstraction(nn.Module):
+    """
+    概要
+    ・点群データをサンプリングして局所的な特徴を抽出する
+    ・入力データからサンプリング点を選び，その近傍を特徴量として集約
+    """
     def __init__(self, npoint, radius, nsample, in_channel, mlp, group_all):
+        """
+        npoint:サンプリングする点の数
+        radius:サンプリングされた各点の近傍の検索半径
+        nsample:近傍に選択する点の最大数
+        in_channel:入力点の特徴量の次元
+        mlp:各畳み込み層の出力次元
+        group_all:すべての点を1つのグループとして扱うかどうかのフラグ
+        """
         super(PointNetSetAbstraction, self).__init__()
         self.npoint = npoint
         self.radius = radius
@@ -175,6 +188,13 @@ class PointNetSetAbstraction(nn.Module):
 
     def forward(self, xyz, points):
         """
+        引数：
+            xyz:点群の座標データ[B, C, N]
+            points:点群の特徴データ[B, D, N]
+        返り値:
+            new_xyz:サンプリングされた点の座標[B, C, S]
+            new_points_concat:サンプリング点の特徴量[B, D', S]
+
         Input:
             xyz: input points position data, [B, C, N]
             points: input points data, [B, D, N]
@@ -182,10 +202,12 @@ class PointNetSetAbstraction(nn.Module):
             new_xyz: sampled points position data, [B, C, S]
             new_points_concat: sample points feature data, [B, D', S]
         """
+
+        # permute(0,2,1) →　引数の順番に入れ替える．左の例だと(a,b,c)→(a,c,b)となる
+        # xyzをxzyに変換
         xyz = xyz.permute(0, 2, 1)
         if points is not None:
             points = points.permute(0, 2, 1)
-
         if self.group_all:
             new_xyz, new_points = sample_and_group_all(xyz, points)
         else:
@@ -193,16 +215,20 @@ class PointNetSetAbstraction(nn.Module):
         # new_xyz: sampled points position data, [B, npoint, C]
         # new_points: sampled points data, [B, npoint, nsample, C+D]
         new_points = new_points.permute(0, 3, 2, 1) # [B, C+D, nsample,npoint]
+        # 多層パーセプトロンによる特徴量抽出
+        # 各畳み込み層の出力をReLUとバッチ正規化で処理
         for i, conv in enumerate(self.mlp_convs):
             bn = self.mlp_bns[i]
             new_points =  F.relu(bn(conv(new_points)))
 
+        # 最大値プーリング
         new_points = torch.max(new_points, 2)[0]
         new_xyz = new_xyz.permute(0, 2, 1)
         return new_xyz, new_points
 
 
 class PointNetSetAbstractionMsg(nn.Module):
+    """複数の半径で点群をグループ化し，それぞれのスケールに対して特徴を抽出"""
     def __init__(self, npoint, radius_list, nsample_list, in_channel, mlp_list):
         super(PointNetSetAbstractionMsg, self).__init__()
         self.npoint = npoint
