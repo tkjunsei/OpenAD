@@ -1,2 +1,2 @@
 drive/*.pkl
-wandb/*.wandb
+wandb/

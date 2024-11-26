@@ -47,6 +47,7 @@ class PN2(nn.Module):
         
         # fp(Feature Propagation)
         # 抽出された特徴を高解像度にアップサンプリング（抽象化された特徴を統合し，細かい特徴を復元する）
+        # check_model_weights.pyでチェックポイントの中身を確認する
         self.fp3 = PointNetFeaturePropagation(in_channel=1536, mlp=[256, 256])
         self.fp2 = PointNetFeaturePropagation(in_channel=576, mlp=[256, 128])
         # self.fp3 = PointNetFeaturePropagation(in_channel=1024, mlp=[128, 128])
@@ -124,7 +125,7 @@ if __name__ == "__main__":
         checkpoint_dict = torch.load(checkpoint)
         pn2_dict = pn2.state_dict()
         # pn2_dictとcheckpoint_dictの一致するパラメータのみを更新
-        checkpoint_dict = {k: v for k, v in checkpoint_dict.items() if (k in pn2_dict)}
+        checkpoint_dict = {k: v for k, v in checkpoint_dict.items() if (k in pn2_dict and v.size() == pn2_dict[k].size())}
         pn2_dict.update(checkpoint_dict)
         pn2.load_state_dict(pn2_dict)
     
@@ -217,5 +218,12 @@ if __name__ == "__main__":
             color =  np.concatenate([np.array(color_list[i]).reshape((1, -1)) for i in result], axis=0) / 255.
             cloud.colors = o3d.utility.Vector3dVector(color)
             
+            # save the result
+            # 点群データを保存
+            output_ply_path = f"pointcloud_{obj}_{id}.ply"  # オブジェクト名とIDを含むファイル名
+            o3d.io.write_point_cloud(output_ply_path, cloud)
+            print(f"Saved point cloud to {output_ply_path}")
+
+
             # Visualize the result
-            o3d.visualization.draw([{'name': 'Visualization', 'geometry': cloud, 'material': mat}], title='VISUALIZATION' + '_' + obj, show_skybox=False)
+            # o3d.visualization.draw([{'name': 'Visualization', 'geometry': cloud, 'material': mat}], title='VISUALIZATION' + '_' + obj, show_skybox=False)
